@@ -1,0 +1,129 @@
+/* ManageBlogs.module.css */
+.blogsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.blogCard {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blogCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.linkTag {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blogImage {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.blogImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blogCard:hover .blogImage img {
+  transform: scale(1.05);
+}
+
+.blogContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blogTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1a202c;
+  line-height: 1.4;
+}
+
+.blogMeta {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #edf2f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.blogDate {
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+.blogActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  background: white;
+  color: #4a5568;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.actionButton:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.editButton {
+  color: #2b6cb0;
+  border-color: #bee3f8;
+}
+
+.editButton:hover {
+  background: #ebf8ff;
+  border-color: #90cdf4;
+}
+
+.deleteButton {
+  color: #c53030;
+  border-color: #fed7d7;
+}
+
+.deleteButton:hover {
+  background: #fff5f5;
+  border-color: #feb2b2;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+  .blogsList {
+    grid-template-columns: 1fr;
+  }
+}

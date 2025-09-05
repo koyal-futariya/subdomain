@@ -1,0 +1,72 @@
+/* BlogHorizontalCarousel.module.css */
+.carouselContainer {
+  margin: 2rem 0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.carouselTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+.carouselNav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navButton {
+  background: #edf2f7;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.navButton:hover {
+  background: #e2e8f0;
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.3s ease;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.carouselItem {
+  flex: 0 0 calc(33.333% - 0.67rem);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+  .carouselItem {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .carouselItem {
+    flex: 0 0 100%;
+  }
+}
