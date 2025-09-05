@@ -520,7 +520,7 @@ const BlogsAdminPanel = () => {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
             <div className="bg-white rounded-lg w-full max-w-6xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden shadow-2xl">
               <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-200 bg-gray-50">
-                <h2 className="text-lg sm:text-2xl font-bold text-gray-800 flex items-center">
+                <h2 className="text-lg sm:text-2xl font-bold text-gray-900 flex items-center">
                   {editingBlog ? (
                     <>
                       <FaEdit className="mr-2 sm:mr-3 text-blue-600" />
@@ -537,7 +537,7 @@ const BlogsAdminPanel = () => {
                 </h2>
                 <button
                   onClick={closeModal}
-                  className="text-gray-500 hover:text-gray-700 transition-colors p-2 hover:bg-gray-200 rounded-full"
+                  className="text-gray-600 hover:text-gray-800 transition-colors p-2 hover:bg-gray-200 rounded-full"
                   disabled={loading}
                 >
                   <FaTimes className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -556,12 +556,12 @@ const BlogsAdminPanel = () => {
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
               <div className="text-center sm:text-left">
-                <h2 className="text-xl sm:text-2xl font-bold mb-2 flex items-center justify-center sm:justify-start">
+                <h2 className="text-xl sm:text-2xl font-bold mb-2 flex items-center justify-center sm:justify-start text-white">
                   <FaBlog className="mr-2 sm:mr-3" />
                   <span className="hidden sm:inline">{user && user.role && user.role.toLowerCase() === "user" ? "My Blog Posts" : "Manage Blog Posts"}</span>
                   <span className="sm:hidden">{user && user.role && user.role.toLowerCase() === "user" ? "My Posts" : "Manage Posts"}</span>
                 </h2>
-                <p className="hidden md:block text-blue-100 text-sm sm:text-base">
+                <p className="hidden md:block text-blue-50 text-sm sm:text-base">
                   {user && user.role && user.role.toLowerCase() === "user" ? "Create and manage your blog content" : "Create, edit, and manage blog content"}
                 </p>
               </div>
@@ -573,20 +573,20 @@ const BlogsAdminPanel = () => {
             {/* Enhanced Stats Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mt-4">
               <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-2 sm:p-3 text-center hover:bg-opacity-20 transition-all duration-200">
-                <div className="text-lg sm:text-2xl font-bold">{stats.total}</div>
-                <div className="text-xs text-blue-100">Total</div>
+                <div className="text-lg sm:text-2xl font-bold text-orange-400">{stats.total}</div>
+                <div className="text-xs text-black">Total</div>
               </div>
               <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-2 sm:p-3 text-center hover:bg-opacity-20 transition-all duration-200">
-                <div className="text-lg sm:text-2xl font-bold text-green-200">{stats.published}</div>
-                <div className="text-xs text-blue-100">Published</div>
+                <div className="text-lg sm:text-2xl font-bold text-green-400">{stats.published}</div>
+                <div className="text-xs text-black">Published</div>
               </div>
               <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-2 sm:p-3 text-center hover:bg-opacity-20 transition-all duration-200">
-                <div className="text-lg sm:text-2xl font-bold text-yellow-200">{stats.drafts}</div>
-                <div className="text-xs text-blue-100">Drafts</div>
+                <div className="text-lg sm:text-2xl font-bold text-yellow-400">{stats.drafts}</div>
+                <div className="text-xs text-black">Drafts</div>
               </div>
               <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-2 sm:p-3 text-center hover:bg-opacity-20 transition-all duration-200">
-                <div className="text-lg sm:text-2xl font-bold text-purple-200">{stats.featured}</div>
-                <div className="text-xs text-blue-100">Featured</div>
+                <div className="text-lg sm:text-2xl font-bold text-purple-400">{stats.featured}</div>
+                <div className="text-xs text-black">Featured</div>
               </div>
             </div>
           </div>
@@ -610,10 +610,10 @@ const BlogsAdminPanel = () => {
                     </button>
                   )}
 
-                  <div className="text-xs sm:text-sm text-gray-600 flex items-center justify-center sm:justify-start gap-2 bg-white px-3 py-2 rounded-lg border">
+                  <div className="text-xs sm:text-sm text-gray-800 flex items-center justify-center sm:justify-start gap-2 bg-white px-3 py-2 rounded-lg border">
                     <FaUser className="text-blue-500" />
                     <span>
-                      Role: <span className="font-medium capitalize">{user && user.role}</span>
+                      Role: <span className="font-medium capitalize text-gray-900">{user && user.role}</span>
                     </span>
                     {user && user.role && user.role.toLowerCase() === "user" && <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Your Posts Only</span>}
                   </div>
@@ -631,19 +631,19 @@ const BlogsAdminPanel = () => {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   {/* Search */}
                   <div className="relative flex-1 sm:flex-initial">
-                    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                     <input
                       type="text"
                       placeholder="Search blogs..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 pr-4 py-2 sm:py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-64 shadow-sm text-sm sm:text-base"
+                      className="pl-10 pr-4 py-2 sm:py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-64 shadow-sm text-sm sm:text-base text-gray-900 placeholder-gray-600"
                       disabled={loading}
                     />
                   </div>
 
                   {/* Category Filter */}
-                  <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className="px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 shadow-sm text-sm sm:text-base" disabled={loading}>
+                  <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className="px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 shadow-sm text-sm sm:text-base text-gray-900" disabled={loading}>
                     <option value="">All Categories</option>
                     {categories.map((cat) => (
                       <option key={cat} value={cat}>
@@ -653,7 +653,7 @@ const BlogsAdminPanel = () => {
                   </select>
 
                   {/* Status Filter */}
-                  <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)} className="px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 shadow-sm text-sm sm:text-base" disabled={loading}>
+                  <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)} className="px-3 sm:px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 shadow-sm text-sm sm:text-base text-gray-900" disabled={loading}>
                     <option value="">All Statuses</option>
                     {statuses.map((status) => (
                       <option key={status} value={status}>
@@ -667,10 +667,10 @@ const BlogsAdminPanel = () => {
 
             {/* Error Alert */}
             {error && (
-              <div className="mt-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start gap-2">
-                <FaExclamationTriangle className="text-red-500 flex-shrink-0 mt-0.5" />
+              <div className="mt-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-start gap-2">
+                <FaExclamationTriangle className="text-red-600 flex-shrink-0 mt-0.5" />
                 <span className="flex-1 text-sm">{error}</span>
-                <button onClick={() => setError(null)} className="text-red-500 hover:text-red-700 flex-shrink-0">
+                <button onClick={() => setError(null)} className="text-red-600 hover:text-red-800 flex-shrink-0">
                   <FaTimes />
                 </button>
               </div>
@@ -683,16 +683,16 @@ const BlogsAdminPanel = () => {
               <div className="flex justify-center items-center py-12">
                 <div className="text-center">
                   <FaSpinner className="animate-spin text-3xl sm:text-4xl text-blue-600 mb-4 mx-auto" />
-                  <p className="text-gray-600 text-sm sm:text-base">Loading your blogs...</p>
+                  <p className="text-gray-800 text-sm sm:text-base">Loading your blogs...</p>
                 </div>
               </div>
             ) : filteredBlogs.length === 0 ? (
               <div className="text-center py-8 sm:py-12">
-                <div className="text-gray-400 mb-4">
+                <div className="text-gray-500 mb-4">
                   <FaBlog className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4" />
                 </div>
                 <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">{blogs.length === 0 ? "No blog posts yet" : "No posts match your search"}</h3>
-                <p className="text-gray-500 mb-4 text-sm sm:text-base px-4">
+                <p className="text-gray-700 mb-4 text-sm sm:text-base px-4">
                   {blogs.length === 0 ? (user && user.role && user.role.toLowerCase() === "user" ? "Get started by creating your first blog post" : "Get started by creating blog posts") : "Try adjusting your search terms or filters"}
                 </p>
                 {canCreate && blogs.length === 0 && (
@@ -715,7 +715,7 @@ const BlogsAdminPanel = () => {
                   >
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 space-y-4 sm:space-y-0">
                       <div className="flex-1 sm:mr-4">
-                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">{blog.title}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">{blog.title}</h3>
                         <div className="flex flex-wrap gap-2 mb-3">
                           <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs sm:text-sm font-medium">{blog.category}</span>
                           <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs sm:text-sm font-medium">{blog.subcategory}</span>
@@ -729,7 +729,7 @@ const BlogsAdminPanel = () => {
                         </div>
 
                         {/* Mobile-optimized blog details */}
-                        <div className="text-gray-600 text-xs sm:text-sm space-y-1">
+                        <div className="text-gray-800 text-xs sm:text-sm space-y-1">
                           <p>
                             <strong>Author:</strong> {blog.author} {user && blog.author === user.username && <span className="text-blue-600 font-medium">(You)</span>}
                           </p>
@@ -740,11 +740,11 @@ const BlogsAdminPanel = () => {
                             <strong>Updated:</strong> {new Date(blog.updatedAt).toLocaleDateString()}
                           </p>
                           <p className="hidden sm:block">
-                            <strong>Slug:</strong> <code className="bg-gray-100 px-1 py-0.5 rounded text-xs">/{blog.slug}</code>
+                            <strong>Slug:</strong> <code className="bg-gray-100 px-1 py-0.5 rounded text-xs text-gray-900">/{blog.slug}</code>
                           </p>
                         </div>
 
-                        {blog.content && <p className="text-gray-700 mt-3 text-xs sm:text-sm line-clamp-2">{blog.content.replace(/<[^>]*>/g, "").substring(0, 100)}...</p>}
+                        {blog.content && <p className="text-gray-800 mt-3 text-xs sm:text-sm line-clamp-2">{blog.content.replace(/<[^>]*>/g, "").substring(0, 100)}...</p>}
                       </div>
 
                       {blog.image && (
