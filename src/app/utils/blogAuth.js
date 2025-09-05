@@ -345,7 +345,8 @@ export const canAccessBlogAdmin = (user = null) => {
 // Test connection to the blog API
 export async function testConnection() {
   try {
-    const response = await fetch('/api/blog/connection-test', {
+    const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5002';
+    const response = await fetch(`${API_BASE_URL}/api/blog/connection-test`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'

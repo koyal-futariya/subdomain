@@ -40,6 +40,18 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Connection test endpoint
+app.get('/api/blog/connection-test', (req, res) => {
+  console.log('Connection test endpoint hit');
+  res.status(200).json({ 
+    status: 'success', 
+    message: 'Backend connection successful',
+    timestamp: new Date().toISOString(),
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // ✅ Debugging Middleware
 app.use((req, res, next) => {
   console.log("Incoming Request:", req.method, req.url);

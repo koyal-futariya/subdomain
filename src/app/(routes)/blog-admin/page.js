@@ -567,12 +567,7 @@ const BlogsAdminPanel = () => {
               </div>
 
               {/* Logout button wired to same handler as back */}
-              <div className="mt-3 sm:mt-0">
-                <button onClick={handleLogout} className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors" title="Logout">
-                  <FaTimes className="w-3 h-3" />
-                  Logout
-                </button>
-              </div>
+             
             </div>
 
             {/* Enhanced Stats Cards */}
